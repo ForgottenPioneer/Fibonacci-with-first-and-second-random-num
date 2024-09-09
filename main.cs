@@ -37,3 +37,29 @@ class Program
         Console.WriteLine($"Фиб1: {fibonacciArray[0]}, Фиб2: {fibonacciArray[1]}, Квадрат суммы: {squareOfSum}");
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+using System;
+class HelloWorld {
+  static void Main() {
+      int a = 1000;
+      while(a > 0) {
+        
+    if(a % 3 == 0 && a % 2 != 0)
+        {
+             Console.WriteLine(a);
+        }
+        a--;
+      }
+    }
+}
