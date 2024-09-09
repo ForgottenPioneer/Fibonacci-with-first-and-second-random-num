@@ -2,35 +2,38 @@ using System;
 
 class Program
 {
-    static int Fibonacci(int n)
+    static int Fibonacci(int a, int b, int n)
     {
-        if (n <= 1) return n;
-        return Fibonacci(n - 1) + Fibonacci(n - 2);
+        if (n == 0) return a;
+        if (n == 1) return b;
+        int[] fib = new int[n + 1];
+        fib[0] = a;
+        fib[1] = b;
+        for (int i = 2; i <= n; i++)
+        {
+            fib[i] = fib[i - 1] + fib[i - 2];
+        }
+        return fib[n];
     }
 
     static void Main()
     {
-        int[] fibbonacci_array = new int[2];
-        int fib;
         Random rand = new Random();
+        int a = rand.Next(10);
+        int b = rand.Next(10);
 
-
+        int[] fibonacciArray = new int[10];
         int sum = 0;
+
         for (int i = 0; i < 10; i++)
-{
-        if (i < 2){
-           fib = Fibonacci(rand.Next(10));
-           fibbonacci_array[i] = fib;
+        {
+            fibonacciArray[i] = Fibonacci(a, b, i);
+            Console.WriteLine(fibonacciArray[i]);
+            sum += fibonacciArray[i];
         }
-        else{
-        fib = Fibonacci(i);
-        }
-        Console.WriteLine(fib);
-        sum += Fibonacci(i);
-}
 
         int squareOfSum = sum * sum;
 
-        Console.WriteLine($"Фиб1: {fibbonacci_array[0]}, Фиб2: {fibbonacci_array[1]}, Квадрат суммы: {squareOfSum}");
+        Console.WriteLine($"Фиб1: {fibonacciArray[0]}, Фиб2: {fibonacciArray[1]}, Квадрат суммы: {squareOfSum}");
     }
 }
